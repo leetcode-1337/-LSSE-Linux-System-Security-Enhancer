@@ -15,6 +15,7 @@ void load_log_config(FILE *file)
 
     while (fgets(line, sizeof(line), file))
     {
+        printf("Line: %s\n", line);
         if (line[0] == '\n' || line[0] == '#') // skip empty lines and comments
         {
             continue;
@@ -35,6 +36,12 @@ void load_log_config(FILE *file)
             }
             strncpy(config_entries.log[max_log_count].alias, key, MAX_CONFIG_KEY_LENGTH);
             strncpy(config_entries.log[max_log_count].file, value, MAX_CONFIG_KEY_LENGTH);
+        max_log_count++;
+        if (key && value)
+        {
+            strncpy(config_entries.log[max_log_count].alias, key, MAX_CONFIG_KEY_LENGTH);
+            strncpy(config_entries.log[max_log_count].file, value, MAX_CONFIG_KEY_LENGTH);
+            printf("Alias: %s, File: %s\n", config_entries.log[max_log_count].alias, config_entries.log[max_log_count].file);
         }
     }
 }

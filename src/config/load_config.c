@@ -47,6 +47,14 @@ int load_config(const char *filepath) {
                 load_report_config(file);
                 if (line[0] == '[') 
                     section = strtok(line, "[]");
+            if (strcmp(section, "log") == 0) {
+                load_log_config(file);
+            }
+            if (strcmp(section, "rules") == 0) {
+                load_detection_config(file);
+            }
+            if (strcmp(section, "alerts") == 0) {
+                load_report_config(file);
             }
         }
     }
