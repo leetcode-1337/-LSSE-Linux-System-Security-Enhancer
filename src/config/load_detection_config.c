@@ -7,7 +7,6 @@ void load_detection_config(FILE *file)
 
     while (fgets(line, sizeof(line), file))
     {
-        printf("Line: %s\n", line);
         if (line[0] == '\n' || line[0] == '#') // skip empty lines and comments
         {
             continue;

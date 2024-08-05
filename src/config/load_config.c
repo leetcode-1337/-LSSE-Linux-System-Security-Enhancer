@@ -27,21 +27,26 @@ int load_config(const char *filepath) {
             continue;
         }
         if (line[0] == '[') {
-            printf("Line: %s\n", line);
             char *section = strtok(line, "[]");
             if (strcmp(section, "network") == 0) {
                 load_network_config(file);
                 if (line[0] == '[') 
                     section = strtok(line, "[]");
             }
-            if (strcmp(section, "log") == 0) {
+            if (strcmp(section, "log_files") == 0) {
                 load_log_config(file);
+                if (line[0] == '[') 
+                    section = strtok(line, "[]");
             }
             if (strcmp(section, "rules") == 0) {
                 load_detection_config(file);
+                if (line[0] == '[') 
+                    section = strtok(line, "[]");
             }
             if (strcmp(section, "alerts") == 0) {
                 load_report_config(file);
+                if (line[0] == '[') 
+                    section = strtok(line, "[]");
             }
         }
     }

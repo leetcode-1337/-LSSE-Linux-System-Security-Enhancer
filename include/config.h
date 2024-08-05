@@ -45,6 +45,8 @@ typedef struct s_config_entry{
 } t_config_entry;
 
 static t_config_entry config_entries;
+
+
 static int config_entry_count;
 int load_config(const char *filepath);
 
