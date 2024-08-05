@@ -1,7 +1,6 @@
 #ifndef INIT_H
 # define INIT_H
 
-void	initialize(void);
-
+void	initialize(int ac, char **av);
 
 #endif
