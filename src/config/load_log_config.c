@@ -26,6 +26,16 @@ void load_log_config(FILE *file)
         }
         key = strtok(line, "="); // get key
         value = strtok(NULL, "\n"); // get value
+        if (key && value)
+        {
+            max_log_count++;
+            if (strcmp(key, "auth_log") != 0 && strcmp(key, "syslog") != 0) // check if key is valid
+            {
+                fprintf(stderr, "Invalid key in log configuration: %s expected auth_log, syslog\n", key);
+                exit (EXIT_FAILURE);
+            }
+            strncpy(config_entries.log[max_log_count].alias, key, MAX_CONFIG_KEY_LENGTH);
+            strncpy(config_entries.log[max_log_count].file, value, MAX_CONFIG_KEY_LENGTH);
         max_log_count++;
         if (key && value)
         {
