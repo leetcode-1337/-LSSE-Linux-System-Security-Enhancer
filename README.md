@@ -1,4 +1,6 @@
 # -LSSE-Linux-System-Security-Enhancer
+![Licence](https://img.shields.io/badge/License-MIT-blue.svg)
+![ReadMe](https://img.shields.io/badge/ReadMe-018EF5?logo=readme&logoColor=fff&style=flat-square)
 
 - [installation](#installation) 
 - [Usage](#usage)
